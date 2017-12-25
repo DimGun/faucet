@@ -57,7 +57,12 @@ class AccountRegistrator
         else
             @logger.debug(result.inspect)
             res[:result] = result
-            #GrapheneCli.instance.exec('transfer', [registrar_account, account_name, '1000', 'QBITS', 'Welcome to OpenLedger. Read more about Qbits under asset', true])
+
+            welcome_bonus = Rails.application.config.faucet.welcome_bonus
+            if welcome_bonus
+                GrapheneCli.instance.exec('transfer', [registrar_account, account_name, welcome_bonus['amount'], 
+                    welcome_bonus['symbol'], welcome_bonus['message'], true])
+            end
         end
         return res
     end
