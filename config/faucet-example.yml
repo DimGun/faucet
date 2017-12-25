@@ -3,6 +3,12 @@ registrar_account: your_faucet_account
 referrer_percent: 50
 refcode_prefix: F01
 
+welcome_bonus:
+  amount: 100
+  symbol: TEST
+  message: "Welcome to Carix!"
+
+
 default_url: localhost
 default_port: 3000
 
